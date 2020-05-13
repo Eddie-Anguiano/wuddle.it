@@ -1,0 +1,327 @@
+//-----------------------------------
+//animate__form1*/
+//-----------------------------------
+//On-focus the input placeholder text floats upward and becomes a header
+
+@mixin animate__form1($width, $color) {
+  // Required HTML:
+  // <div class="my-animate1-form">
+  //     <input
+  //       type="text"
+  //       class="my-animate1-form__input"
+  //       autocomplete="off"
+  //       required
+  //     />
+  //     <label class="my-animate1-form__label">
+  //       <span class="my-animate1-form__label-content">name</span>
+  //     </label>
+  //   </div>
+
+  input:required:invalid {
+    box-shadow: none;
+  }
+
+  $form: 'my-animate1-form';
+  $label-name: 'my-animate1-form__label';
+  $content-name: 'my-animate1-form__label-content';
+
+  .#{$form} {
+    position: relative;
+    width: $width;
+    height: 55px;
+    overflow: hidden;
+
+    input {
+      width: 100%;
+      height: 100%;
+      padding-top: 20px;
+      border: none;
+      outline: none;
+
+      &:focus + .#{$label-name} .#{$content-name},
+      &:valid + .#{$label-name} .#{$content-name} {
+        transform: translateY(-150%);
+        font-size: 14px;
+        color: $color;
+      }
+      &:focus + .#{$label-name}::after,
+      &:valid + .#{$label-name}::after {
+        transform: translateX(0%);
+      }
+    }
+    .#{$label-name} {
+      position: absolute;
+      bottom: 0px;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-bottom: 1px solid black;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: -1px;
+        height: 100%;
+        width: 100%;
+        border-bottom: 3px solid $color;
+        transform: translateX(-100%);
+        transition: all 0.4s ease;
+      }
+
+      .#{$content-name} {
+        position: absolute;
+        bottom: 5px;
+        left: 0px;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+}
+
+//-----------------------------------
+//animate__link1*/
+//-----------------------------------
+//changes link color and adds underline that appears from the middle out.
+
+// @include inside of <a> tag
+@mixin animate__link1($color, $underline-width, $color-start: inherit) {
+  position: relative;
+  padding: 3px;
+  color: $color-start;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out 0s;
+
+  &::before {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: $underline-width;
+    width: 100%;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+    background-color: $color;
+  }
+
+  &:hover {
+    color: $color;
+
+    &:before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+//-----------------------------------
+//animate-hover1*/
+//-----------------------------------
+//background gradient rises from bottom and fades in. Header changes from dark to light.  Sub-header rises up bottom slightly while fading in.
+
+//required html
+// <figure class="my-animate-hover1">
+//   <img src="" alt="" class="my-animate-hover1__img" />
+//   <figcaption class="my-animate-hover1__figcaption">
+//     <h2 class="my-animate-hover1__header"></h2>
+//     <p class="my-animate-hover1__sub-header"></p>
+//   </figcaption>
+// </figure>
+
+@mixin animate-hover1($height, $width, $color-dark, $color-light: white) {
+  $figure: 'my-animate-hover1';
+
+  .#{$figure} {
+    position: relative;
+    height: $height;
+    width: $width;
+    overflow: hidden;
+    text-align: center;
+
+    &:hover .#{$figure}__sub-header {
+      transform: translate3d(0, -200%, 0);
+      opacity: 1;
+    }
+
+    &:hover .#{$figure}__figcaption:before {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    &:hover .#{$figure}__header {
+      transform: translate3d(-50%, -200%, 0);
+      color: $color-light;
+    }
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: $height;
+      width: $width;
+      object-fit: cover;
+      object-position: center;
+    }
+    &__figcaption {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.35s, color 0.35s;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparentize($color-dark, 1) 0%,
+          transparentize($color-dark, 0.3) 75%
+        );
+        z-index: 1;
+        transform: translate3d(0, 50%, 0);
+        opacity: 0;
+        transition: transform 0.35s, opacity 0.35s;
+      }
+    }
+
+    &__header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      z-index: 2;
+      color: $color-dark;
+      transition: color 0.35s, transform 0.35s;
+    }
+
+    &__sub-header {
+      width: 100%;
+      position: absolute;
+      top: 95%;
+      transform: translate3d(0, -100%, 0);
+      color: $color-light;
+      opacity: 0;
+      transition: transform 0.35s, opacity 0.35s;
+      z-index: 2;
+      margin-bottom: 10px;
+    }
+    @content;
+  }
+}
+
+//-----------------------------------
+// animate-hover2*/
+//-----------------------------------
+// cross-hatch borders animate in opposite directions.
+// header animates down
+// subheader fades in from center
+// subtle overlay fades in
+
+// required html
+// <figure class="my-animate-hover2">
+//   <img src="" alt="" class="my-animate-hover2__img" />
+//   <figcaption class="my-animate-hover2__figcaption">
+//     <h2 class="my-animate-hover2__header">my-animate-hover2</h2>
+//     <p class="my-animate-hover2__sub-header">animated border and header<br/>subheader and overy fades in</p>
+//   </figcaption>
+// </figure>
+
+@mixin animate-hover2($height, $width, $border-color: white, $overlay-color: black) {
+  $figure: 'my-animate-hover2';
+  body {
+    @extend %center;
+  }
+
+  .#{$figure} {
+    position: relative;
+    height: $height;
+    width: $width;
+    background-color: gray;
+
+    &__img {
+      height: $height;
+      width: $width;
+      object-fit: cover;
+    }
+
+    &__figcaption {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparentize(black, 1);
+      transition: background-color 0.35s ease-in-out;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 50px;
+        right: 50px;
+        border-left: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+        z-index: 2;
+        transform: scale(1, 0);
+        transition: transform 0.35s ease-in-out;
+        transform-origin: top;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50px;
+        bottom: 50px;
+        left: 20px;
+        right: 20px;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        z-index: 2;
+        transform: scale(0, 1);
+        transition: transform 0.35s ease-in-out;
+        transform-origin: left;
+      }
+    }
+
+    &__header {
+      transform: translateY(-50%);
+      transition: transform 0.35s ease-in-out;
+    }
+
+    &__subheader {
+      opacity: 0;
+      transform: scale(1, 0);
+      margin-top: 20px;
+      transition: opacity 0.5s ease-in-out, transform 0.1s ease-in-out;
+    }
+
+    &:hover .my-animate-hover2__figcaption:before,
+    &:hover .my-animate-hover2__figcaption:after,
+    &:hover .my-animate-hover2__subheader {
+      transform: scaleX(1);
+    }
+
+    &:hover .my-animate-hover2__figcaption {
+      background-color: transparentize($overlay-color, 0.8);
+    }
+
+    &:hover .my-animate-hover2__subheader {
+      opacity: 1;
+    }
+
+    &:hover .my-animate-hover2__header {
+      transform: translateY(0);
+    }
+  }
+}

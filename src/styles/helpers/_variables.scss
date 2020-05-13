@@ -1,0 +1,74 @@
+/*-------------------------------*/
+/* FONTS */
+/*-------------------------------*/
+// $font-url--google: 'https://fonts.googleapis.com/css?family=Lato:300i,400|Raleway:300i,400,600,700&display=swap';
+
+// $font-family--primary: 'Lato', sans-serif, Helvetica, Arial;
+// $font-family--secondary: 'Raleway', sans-serif, Helvetica, Arial;
+
+// $font-weight--light: 300;
+// $font-weight--regular: 400;
+// $font-weight--semi-bold: 600;
+// $font-weight--bold: 700;
+
+$font-size--base: 16px;
+$line-height--base: 24px;
+$word-spacing--base: 3px;
+
+/*-------------------------------*/
+/* BREAKPOINTS */
+/*-------------------------------*/
+
+// $breakpoint--lg: 1200px;
+// $breakpoint--md: 716px;
+// $breakpoint--sm: 300px;
+
+/*-------------------------------*/
+/* COLORS */
+/*-------------------------------*/
+
+$color--white: #fff;
+$color--black: rgb(44, 44, 44);
+
+/*-------------------------------*/
+/* IMAGE PATH */
+/*-------------------------------*/
+
+$img-path: '../images';
+
+/*-------------------------------*/
+/* BORDER RADIUS */
+/*-------------------------------*/
+
+// $border-radius--small: 4px;
+
+/*-------------------------------*/
+/* ANIMATE.CSS --SASS VERSION*/
+/*-------------------------------*/ // requires e.g. .animated .fadeInDown
+
+// $use-rollOut: true;
+// $use-fadeInDown: true;
+// $base-duration: 3s;
+
+/*-------------------------------*/
+/* SPACING */
+/*-------------------------------*/
+
+// $spacing--xtra-small: 15px;
+// $spacing--small: 25px;
+// $spacing--large: 80px;
+// $spacing--cta-btn: 15px 25px;
+
+/*-------------------------------*/
+/* Z-INDEX */
+/*-------------------------------*/
+
+// $index--1: 1;
+// .hero__img-phones
+// .img__phones
+
+// $index--2: 2;
+// .mobile-nav-background
+
+// $index--3: 3;
+// .header

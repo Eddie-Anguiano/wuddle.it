@@ -1,0 +1,60 @@
+/*-------------------------------*/
+/* BACKGROUND IMAGES */
+/*-------------------------------*/
+@mixin img-bg(
+  $h,
+  $w,
+  $img-name,
+  $display: block,
+  $bg-pos: center,
+  $bg-repeat: no-repeat,
+  $bg-size: cover
+) {
+  background-image: url('#{$img-path}/#{$img-name}');
+  height: $h;
+  width: $w;
+  display: $display;
+  background-size: $bg-size;
+  background-position: $bg-pos;
+  background-repeat: $bg-repeat;
+}
+
+/*-------------------------------*/
+/*MEDIA QUERIES*/
+/*-------------------------------*/
+
+// Mobile first
+@mixin m1-mq($break) {
+  @if $break == 'small' {
+    @media (min-width: $breakpoint--sm) and (max-width: $breakpoint--md) {
+      @content;
+    }
+  } @else if $break == 'medium' {
+    @media (min-width: $breakpoint--md + 1) {
+      @content;
+    }
+  } @else if $break == 'large' {
+    @media (min-width: $breakpoint--lg) {
+      @content;
+    }
+  } @else {
+    @error "No value could be retrieced for '#{$break}'";
+  }
+}
+
+// Desktop first
+@mixin d1-mq($break) {
+  @if $break == 'large' {
+    @media (max-width: $breakpoint--lg) and (min-width: $breakpoint--md) {
+      @content;
+    }
+  } @else if $break == 'large-keep' {
+    @media (max-width: $breakpoint--lg) {
+      @content;
+    }
+  } @else if $break == 'medium' {
+    @media (max-width: $breakpoint--md) {
+      @content;
+    }
+  }
+}

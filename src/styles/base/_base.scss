@@ -1,0 +1,29 @@
+/*-------------------------------*/
+/*GLOBALS*/
+/*-------------------------------*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+textarea,
+input {
+  border: none;
+  resize: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.test {
+  color: green;
+}

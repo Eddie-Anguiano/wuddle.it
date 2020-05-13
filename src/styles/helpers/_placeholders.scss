@@ -1,0 +1,21 @@
+/*-------------------------------*/
+/* CLEARFIX */
+/*-------------------------------*/
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/*-------------------------------*/
+/* CENTER CONTENT */
+/*-------------------------------*/
+
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
