@@ -1,6 +1,11 @@
 /*-------------------------------*/
 /*GLOBALS*/
 /*-------------------------------*/
+
+:root {
+  font-size: $font-size--base;
+}
+
 *,
 *::before,
 *::after {
@@ -24,6 +29,13 @@ input:focus {
   outline: none;
 }
 
-.test {
-  color: green;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
 }

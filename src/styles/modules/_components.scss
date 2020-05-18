@@ -1,0 +1,123 @@
+.results {
+  &__item {
+    position: relative;
+    display: flex;
+    height: rem($spacing--medium);
+    background-color: $color--white;
+    transition: transform 0.2s ease-in-out;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -10px;
+      content: '';
+      height: 100%;
+      width: rem(10px);
+      background-color: $color--yellow;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: translate(rem(10px), 0px);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    height: rem(30px);
+    width: rem(30px);
+    border-radius: 100px;
+    margin: $spacing--xtra-small;
+  }
+
+  &__icon {
+    margin-right: $spacing--xtra-small;
+    display: flex;
+    align-items: center;
+    // height: 25.417px;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    padding-left: $spacing--xtra-small;
+    width: 100%;
+  }
+}
+
+.recipe {
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: $spacing--small;
+    height: rem(200px);
+    background-color: $color--white;
+  }
+
+  &__img {
+    padding: $spacing--small 0 $spacing--small $spacing--small;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing--small $spacing--small $spacing--small 0;
+  }
+
+  &__glass {
+    align-self: flex-end;
+    text-align: right;
+  }
+}
+
+.ingredients {
+  &__heading {
+    margin-top: $spacing--small;
+    margin-bottom: rem(3px);
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: $spacing--small;
+    row-gap: $spacing--xtra-small;
+    padding: $spacing--medium 0;
+    border-top: 1px solid $color--dark-gray;
+  }
+
+  &__grid-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__ingredient {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(63, 63, 63);
+    }
+  }
+}
+
+.details {
+  &__heading {
+    margin-bottom: rem(3px);
+  }
+
+  &__info-container {
+    border-top: 1px solid $color--dark-gray;
+    padding-top: $spacing--medium;
+    padding-bottom: $spacing--xtra-small;
+    display: flex;
+    justify-content: space-between;
+  }
+}

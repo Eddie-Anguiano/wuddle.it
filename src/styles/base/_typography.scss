@@ -2,6 +2,63 @@
 /* BASE */
 /*-------------------------------*/
 
-:root {
-  font-size: $font-size--base;
+h1,
+h2,
+h3 {
+  font-family: $font-family--secondary;
+
+  font-weight: $font-weight--regular;
+  letter-spacing: rem($letter-spacing);
+}
+
+h1 {
+  font-size: rem(24px);
+}
+
+h2 {
+  font-size: rem(18px);
+}
+
+h3 {
+  font-size: rem(16px);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-size: rem(14px);
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-size: rem(14px);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  font-size: rem(14px);
+}
+
+.recipe {
+  &__glass {
+    font-size: rem(13px);
+    color: darken($color--dark-gray, 20%);
+  }
+}
+
+.ingredients {
+  &__amount {
+    // font-size: rem(16px);
+    font-family: $font-family--secondary;
+  }
+}
+
+.details {
+  &__name {
+    font-weight: $font-weight--bold;
+    text-transform: capitalize;
+  }
+
+  &__abv {
+    font-size: rem(13px);
+  }
 }

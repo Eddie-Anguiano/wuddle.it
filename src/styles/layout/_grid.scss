@@ -1,0 +1,4 @@
+.main {
+  @extend %grid-col-3;
+  padding: rem($spacing--medium) rem($spacing--small);
+}

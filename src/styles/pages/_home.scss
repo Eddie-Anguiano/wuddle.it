@@ -1,0 +1,16 @@
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('./../images/background-main.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: $spacing--medium 0;
+}
+
+.container {
+  max-width: rem(1140px);
+  margin: 0 auto;
+  min-height: calc(100vh - 100px);
+  background-color: $color--light-gray;
+}

@@ -4,7 +4,7 @@
 
 %clearfix {
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -18,4 +18,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*-------------------------------*/
+/* EFFECTS */
+/*-------------------------------*/
+
+// %neu-down {
+//   box-shadow: inset 6px 6px 7px $color-shadow-grey,
+//     inset -6px -6px 7px $color-white;
+// }
+
+// %neu-up {
+//   box-shadow: 6px 6px 7px $color-shadow-grey, -6px -6px 7px $color-white;
+// }
+
+@mixin neu-button($color) {
+  box-shadow: inset -6px -6px 10px darken($color, 8%),
+    inset 6px 6px 10px lighten($color, 8%);
+}
+
+/*-------------------------------*/
+/* GRIDS */
+/*-------------------------------*/
+
+%grid-col-3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: $spacing--small;
 }

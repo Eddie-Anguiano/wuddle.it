@@ -7,7 +7,114 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 class="test">test</h1>
-    <img src="images/sample.jpg" alt="" />
+    <div class="container">
+      <header class="header">
+        <h1 class="logo">Wuddle.it be?</h1>
+        <div class="search">
+          <img src="images/search.svg" alt="" class="search__icon" />
+          <input type="text" class="search__input" placeholder="placeholder" />
+          <!-- <div class="search__cta">Search by</div> -->
+          <div class="search__drop-down">
+            Search By Ingredient<img
+              src="images/drop-icon.svg"
+              alt=""
+              class="search__drop-icon"
+            />
+          </div>
+        </div>
+        <div class="favorites">
+          <img src="images/heart-red.svg" alt="" class="favorites" />
+        </div>
+      </header>
+
+      <main class="main">
+        <ul class="results">
+          <li class="results__item">
+            <img src="images/background-main.jpg" alt="" class="results__img" />
+            <div class="results__name">Old Fashion</div>
+            <img src="images/drink.svg" alt="" class="results__icon" />
+          </li>
+          <li class="results__item">
+            <img src="images/background-main.jpg" alt="" class="results__img" />
+            <div class="results__name">Old Fashion</div>
+            <img src="images/drink.svg" alt="" class="results__icon" />
+          </li>
+          <li class="results__item">
+            <img src="images/background-main.jpg" alt="" class="results__img" />
+            <div class="results__name">Old Fashion</div>
+            <img src="images/drink.svg" alt="" class="results__icon" />
+          </li>
+          <li class="results__item">
+            <img src="images/background-main.jpg" alt="" class="results__img" />
+            <div class="results__name">Old Fashion</div>
+            <img src="images/drink.svg" alt="" class="results__icon" />
+          </li>
+          <li class="results__item">
+            <img src="images/background-main.jpg" alt="" class="results__img" />
+            <div class="results__name">Old Fashion</div>
+            <img src="images/drink.svg" alt="" class="results__icon" />
+          </li>
+        </ul>
+
+        <section class="recipe">
+          <div class="recipe__card">
+            <img src="images/background-main.jpg" alt="" class="recipe__img" />
+            <div class="recipe__details">
+              <h2 class="recipe__title">Margarita</h2>
+              <div class="recipe__glass">Suggested Glasswear<br />Highball</div>
+            </div>
+          </div>
+          <div class="ingredients">
+            <h4 class="ingredients__heading">Ingredients</h4>
+            <div class="ingredients__info">
+              <div class="ingredients__grid-item">
+                <span class="ingredients__ingredient">Sweet Vermouth</span>
+                <span class="ingredients__amount">1 1/2 oz</span>
+              </div>
+              <div class="ingredients__grid-item">
+                <span class="ingredients__ingredient">Sweet Vermouth</span>
+                <span class="ingredients__amount">1 1/2 oz</span>
+              </div>
+              <div class="ingredients__grid-item">
+                <span class="ingredients__ingredient">Sweet Vermouth</span>
+                <span class="ingredients__amount">1 1/2 oz</span>
+              </div>
+              <div class="ingredients__grid-item">
+                <span class="ingredients__ingredient">Sweet Vermouth</span>
+                <span class="ingredients__amount">1 1/2 oz</span>
+              </div>
+              <div class="ingredients__grid-item">
+                <span class="ingredients__ingredient">Sweet Vermouth</span>
+                <span class="ingredients__amount">1 1/2 oz</span>
+              </div>
+            </div>
+            <div class="ingredients__content">
+              "Straight: Pour all ingredients into mixing glass with ice cubes.
+              Stir well. Strain in chilled martini cocktail glass. Squeeze oil
+              from lemon peel onto the drink, or garnish with olive."
+            </div>
+          </div>
+        </section>
+
+        <aside class="details">
+          <h3 class="details__heading">Ingredient Details</h3>
+          <div class="details__info-container">
+            <span class="details__name">vodka</span>
+            <span class="details__abv">ABV 40</span>
+          </div>
+          <div class="details__content">
+            Vodka is a distilled beverage composed primarily of water and
+            ethanol, sometimes with traces of impurities and flavorings.
+            Traditionally, vodka is made by the distillation of fermented cereal
+            grains or potatoes, though some modern brands use other substances,
+            such as fruits or sugar.\r\n\r\nSince the 1890s, the standard
+            Polish, Russian, Belarusian, Ukrainian, Estonian, Latvian,
+            Lithuanian and Czech vodkas are 40% alcohol by volume ABV (80 US
+            proof), a percentage that is widely misattributed to Dmitri
+            Mendeleev. The European Union has established a minimum of
+          </div>
+        </aside>
+      </main>
+    </div>
   </body>
 </html>
