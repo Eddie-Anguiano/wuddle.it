@@ -26,6 +26,7 @@ h3 {
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size: rem(14px);
+  color: $color--dark-gray;
 }
 
 :-ms-input-placeholder {

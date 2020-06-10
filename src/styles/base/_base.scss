@@ -24,6 +24,22 @@ input {
   resize: none;
 }
 
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $color--dark-gray;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $color--dark-gray;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $color--dark-gray;
+}
+
 textarea:focus,
 input:focus {
   outline: none;

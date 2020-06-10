@@ -4,51 +4,83 @@
   background-color: $color--yellow;
   padding: rem($spacing--small);
   box-shadow: 0 5px 9px -6px darken($color--dark-gray, 20%);
+
+  &__favorites {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__search {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: $spacing--xtra-small;
+  }
 }
 
 .search {
   display: flex;
-  align-items: stretch;
-  margin: 0 rem(-20px);
+  justify-content: stretch;
 
   &__icon {
-    background-color: white;
-    border-radius: rem($border-radius--small) 0 0 rem($border-radius--small);
-    padding: 0 rem($spacing--xtra-small);
-    cursor: pointer;
+    background-color: $color--white;
+    padding: $spacing--xtra-small;
+    border-radius: $border-radius--small 0 0 $border-radius--small;
   }
 
   &__input {
-    flex: 1;
+    flex: 2;
   }
 
-  // &__cta {
-  //   @extend %center;
-  //   flex: 0.5;
-  //   background-color: $color--light-gray;
-  //   margin-right: rem(-3px);
-  // }
-
-  &__drop-down {
-    font-size: 14px;
-    position: relative;
-    @extend %center;
+  &__btn {
     flex: 1;
+    border: none;
     background-color: $color--light-gray;
-    border-radius: rem($border-radius--small);
+    border-radius: 0 $border-radius--small $border-radius--small 0;
     @include neu-button($color--light-gray);
-  }
-
-  &__drop-icon {
-    position: absolute;
-    top: 50%;
-    right: rem($spacing--xtra-small);
-    transform: translateY(-50%);
   }
 }
 
-.favorites {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.drop-down {
+  cursor: pointer;
+  position: relative;
+  background-color: $color--light-gray;
+  border-radius: $border-radius--small;
+  @include neu-button($color--light-gray);
+
+  &__btn {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: $spacing--small;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 35%;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+    right: $spacing--small;
+  }
+
+  &__list {
+    position: absolute;
+    top: rem(50px);
+    left: 0;
+    width: 100%;
+    transform-origin: top;
+  }
+
+  &__item {
+    width: 100%;
+    height: rem(44px);
+    background-color: $color--light-gray;
+    @include neu-button($color--light-gray);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding-left: $spacing--small;
+  }
 }
