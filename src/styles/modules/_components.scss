@@ -30,6 +30,7 @@
   &__img {
     height: rem(30px);
     width: rem(30px);
+    object-fit: cover;
     border-radius: 100px;
     margin: $spacing--xtra-small;
   }
@@ -38,7 +39,6 @@
     margin-right: $spacing--xtra-small;
     display: flex;
     align-items: center;
-    // height: 25.417px;
   }
 
   &__name {
@@ -47,6 +47,23 @@
     padding-left: $spacing--xtra-small;
     width: 100%;
   }
+}
+
+.pagination {
+  height: rem($spacing--medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing--xtra-small;
+
+  &__triangle-left:hover,
+  &__triangle-right:hover {
+    cursor: pointer;
+  }
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .recipe {
