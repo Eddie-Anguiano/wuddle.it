@@ -24,15 +24,6 @@
 /* EFFECTS */
 /*-------------------------------*/
 
-// %neu-down {
-//   box-shadow: inset 6px 6px 7px $color-shadow-grey,
-//     inset -6px -6px 7px $color-white;
-// }
-
-// %neu-up {
-//   box-shadow: 6px 6px 7px $color-shadow-grey, -6px -6px 7px $color-white;
-// }
-
 @mixin neu-button($color) {
   box-shadow: inset -6px -6px 10px darken($color, 8%),
     inset 6px 6px 10px lighten($color, 8%);

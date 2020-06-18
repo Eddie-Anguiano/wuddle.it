@@ -11,6 +11,6 @@ body {
 .container {
   max-width: rem(1140px);
   margin: 0 auto;
-  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
   background-color: $color--light-gray;
 }

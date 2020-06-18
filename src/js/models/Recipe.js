@@ -6,7 +6,7 @@ export default class Recipe {
   async getRecipe() {
     try {
       const resultsJSON = await fetch(
-        'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007'
+        `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.id}`
       );
       this.details = await resultsJSON.json();
     } catch (error) {

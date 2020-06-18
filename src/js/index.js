@@ -1,9 +1,12 @@
 import '../styles/main.scss';
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 import * as dropViews from './views/dropViews';
 import * as searchViews from './views/searchViews';
+import * as recipeViews from './views/recipeViews';
+import * as ingredientViews from './views/ingredientViews';
 import Search from './models/Search';
 import Recipe from './models/Recipe';
+import Ingredient from './models/Ingredient';
 
 const state = {
   searchType: 'drink',
@@ -52,6 +55,7 @@ const controlSearch = async () => {
 
   searchViews.clearInput();
   searchViews.clearResults();
+  renderLoader(elements.results);
 
   if (query) {
     state.search = new Search(query, state.searchType);
@@ -60,8 +64,8 @@ const controlSearch = async () => {
       await state.search.getResults();
 
       // render results to UI
+      clearLoader();
       searchViews.renderResults(state.search.results.drinks);
-      console.log(state.search.results.drinks);
       // set the current results page to 1
       state.pagination = 1;
     } catch (error) {
@@ -74,30 +78,68 @@ const controlSearch = async () => {
 /* RECIPE CONTROLLER */
 /*-------------------------------*/
 
+const controlRecipe = async (itemId) => {
+  state.recipes = new Recipe(itemId);
+  recipeViews.clearRecipe();
+  renderLoader(elements.recipe);
+
+  try {
+    await state.recipes.getRecipe();
+    const recipe = state.recipes.details.drinks[0];
+
+    clearLoader();
+    recipeViews.renderRecipe(recipe);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/*-------------------------------*/
+/* INGREDIENT CONTROLLER */
+/*-------------------------------*/
+
+const controlDetails = async (event) => {
+  const textContent = ingredientViews.getText(event);
+  ingredientViews.clearIngredient();
+  renderLoader(elements.ingredient);
+
+  try {
+    state.ingredient = new Ingredient(textContent);
+    await state.ingredient.getDetails();
+
+    clearLoader();
+    ingredientViews.renderIngredient(state.ingredient.details.ingredients[0]);
+    console.log(state.ingredient.details.ingredients[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /*-------------------------------*/
 /* EVENT LISTENERS */
 /*-------------------------------*/
 
-// Drop-down button
+// Click on drop-down button
 elements.dropDownBtn.addEventListener('click', () => {
   controlDropDown();
 });
 
-// Drop-down item
+// Click on drop-down item
 elements.dropDownList.addEventListener('click', (event) => {
   controlSelectSearch(event);
 });
 
-// Search button
+// click on search button
 elements.searchBtn.addEventListener('click', () => {
   controlSearch();
 });
 
-// Results List
+// click on results List
 elements.results.addEventListener('click', (event) => {
   // List item is clicked
   if (event.target.matches('.results__item *')) {
-    state.recipe = new Recipe(event.target.closest('.results__item').id);
+    const itemId = event.target.closest('.results__item').id;
+    controlRecipe(itemId);
 
     // next pagination arrow button is pressed
   } else if (event.target.dataset.type === 'next') {
@@ -110,5 +152,12 @@ elements.results.addEventListener('click', (event) => {
     state.pagination -= 1;
     searchViews.clearResults();
     searchViews.renderResults(state.search.results.drinks, state.pagination);
+  }
+});
+
+// Click on Ingredient
+elements.recipe.addEventListener('click', (event) => {
+  if (event.target.matches('.ingredients__ingredient')) {
+    controlDetails(event);
   }
 });

@@ -137,4 +137,15 @@
     display: flex;
     justify-content: space-between;
   }
+
+  &__content {
+    overflow-y: scroll;
+    max-height: 55vh;
+  }
+}
+
+.loader {
+  margin-top: 20vh;
+  text-align: center;
+  animation: rotate 1.5s infinite linear;
 }
