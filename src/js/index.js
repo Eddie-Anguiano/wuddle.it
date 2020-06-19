@@ -7,6 +7,7 @@ import * as ingredientViews from './views/ingredientViews';
 import Search from './models/Search';
 import Recipe from './models/Recipe';
 import Ingredient from './models/Ingredient';
+import Random from './models/Random';
 
 const state = {
   searchType: 'drink',
@@ -51,21 +52,26 @@ const controlSelectSearch = (event) => {
 /*-------------------------------*/
 
 const controlSearch = async () => {
-  const query = searchViews.getInput();
+  const query = searchViews.getInput(state.searchType);
 
   searchViews.clearInput();
   searchViews.clearResults();
-  renderLoader(elements.results);
 
   if (query) {
+    renderLoader(elements.results);
     state.search = new Search(query, state.searchType);
 
     try {
       await state.search.getResults();
-
-      // render results to UI
+      const resultsArray = state.search.results.drinks;
       clearLoader();
-      searchViews.renderResults(state.search.results.drinks);
+      if (resultsArray !== null && resultsArray !== 'None Found') {
+        // render results to UI
+        searchViews.renderResults(resultsArray);
+      } else {
+        searchViews.renderNullResults(query);
+      }
+
       // set the current results page to 1
       state.pagination = 1;
     } catch (error) {
@@ -116,8 +122,36 @@ const controlDetails = async (event) => {
 };
 
 /*-------------------------------*/
+/* LOAD RANDOM CONTROLLER */
+/*-------------------------------*/
+
+const controlLoadRandom = async () => {
+  state.random = new Random();
+
+  try {
+    await state.random.getRandom();
+    const resultsArray = state.random.results.drinks;
+
+    // Render 10 random results
+    searchViews.renderResults(resultsArray);
+
+    // Render the recipe of the first result
+    controlRecipe(resultsArray[0].idDrink);
+
+    // Render the first ingredient of the first result
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/*-------------------------------*/
 /* EVENT LISTENERS */
 /*-------------------------------*/
+
+// On page load
+window.onload = () => {
+  controlLoadRandom();
+};
 
 // Click on drop-down button
 elements.dropDownBtn.addEventListener('click', () => {
@@ -132,6 +166,13 @@ elements.dropDownList.addEventListener('click', (event) => {
 // click on search button
 elements.searchBtn.addEventListener('click', () => {
   controlSearch();
+});
+
+elements.searchInput.addEventListener('keyup', (event) => {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    controlSearch();
+  }
 });
 
 // click on results List

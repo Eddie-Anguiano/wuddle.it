@@ -17,6 +17,15 @@ const limitLetters = (title, limit = 17) => {
   return title;
 };
 
+export const renderNullResults = (query) => {
+  const markup = `
+    <div class="null-results">
+      No results for <span class="bold">"${query}"</span>
+    </div>
+  `;
+  elements.results.insertAdjacentHTML('afterbegin', markup);
+};
+
 const renderRecipe = (recipe) => {
   const markup = `
     <li class="results__item" id="${recipe.idDrink}">
@@ -58,7 +67,13 @@ const renderButtons = (currentPage, totalPages) => {
   elements.results.insertAdjacentHTML('beforeend', markup);
 };
 
-export const getInput = () => elements.searchInput.value;
+export const getInput = (searchType) => {
+  const query = elements.searchInput.value;
+  if (searchType === 'letter' && query.length > 1) {
+    return query.slice(0, 1);
+  }
+  return query;
+};
 
 export const clearInput = () => {
   elements.searchInput.value = '';

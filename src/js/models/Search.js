@@ -6,16 +6,17 @@ export default class Search {
 
   async getResults() {
     let apiURL = '';
+    F;
 
     switch (this.searchType) {
       case 'drink':
-        apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.query}`;
+        apiURL = `https://www.thecocktaildb.com/api/json/v2/${apiKey}/search.php?s=${this.query}`;
         break;
       case 'letter':
-        apiURL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${this.query}`;
+        apiURL = `https://www.thecocktaildb.com/api/json/v2/${apiKey}/search.php?f=${this.query}`;
         break;
       case 'ingredient':
-        apiURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${this.query}`;
+        apiURL = `https://www.thecocktaildb.com/api/json/v2/${apiKey}/filter.php?i=${this.query}`;
         break;
       default:
     }

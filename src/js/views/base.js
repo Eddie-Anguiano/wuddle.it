@@ -15,7 +15,7 @@ export const elements = {
 export const renderLoader = (parent) => {
   const markup = `
     <div class="loader">
-      <img src="${loader}" alt="" class="loader__icon" />
+      <img src="${loader}" alt="loader" class="loader__icon" />
     </div>
   `;
 

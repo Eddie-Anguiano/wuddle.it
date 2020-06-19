@@ -4,9 +4,11 @@ export default class Ingredient {
   }
 
   async getDetails() {
+    const apiKey = process.env.API_KEY;
+
     try {
       const resultsJSON = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${this.ingredient}`
+        `https://www.thecocktaildb.com/api/json/v2/${apiKey}/search.php?i=${this.ingredient}`
       );
       this.details = await resultsJSON.json();
     } catch (error) {
