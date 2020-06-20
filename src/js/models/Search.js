@@ -6,7 +6,7 @@ export default class Search {
 
   async getResults() {
     let apiURL = '';
-    F;
+    const apiKey = process.env.API_KEY;
 
     switch (this.searchType) {
       case 'drink':
