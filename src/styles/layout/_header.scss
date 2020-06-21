@@ -23,7 +23,7 @@
   @include d1-mq('large--keep') {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    row-gap: $spacing--small;
+    row-gap: rem($spacing--small);
   }
 
   &__top {
@@ -36,12 +36,12 @@
     flex: 1;
     display: grid;
     grid-template-columns: 2fr 3fr;
-    column-gap: $spacing--xtra-small;
+    column-gap: rem($spacing--xtra-small);
   }
 
   &__icon {
     background-color: $color--white;
-    padding: $spacing--xtra-small;
+    padding: rem($spacing--xtra-small);
     border-radius: $border-radius--small 0 0 $border-radius--small;
   }
 
@@ -70,7 +70,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: $spacing--small;
+    padding-left: rem($spacing--small);
   }
 
   &__icon {
@@ -78,7 +78,7 @@
     top: 35%;
     transition: transform 0.3s ease-in-out;
     transform-origin: center;
-    right: $spacing--small;
+    right: rem($spacing--small);
   }
 
   &__list {
@@ -98,6 +98,6 @@
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
-    padding-left: $spacing--small;
+    padding-left: rem($spacing--small);
   }
 }

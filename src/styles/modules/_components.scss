@@ -9,7 +9,7 @@
     &::before {
       position: absolute;
       top: 0;
-      left: -10px;
+      left: rem(-10px);
       content: '';
       height: 100%;
       width: rem(10px);
@@ -32,11 +32,11 @@
     width: rem(30px);
     object-fit: cover;
     border-radius: 100px;
-    margin: $spacing--xtra-small;
+    margin: rem($spacing--xtra-small);
   }
 
   &__icon {
-    margin-right: $spacing--xtra-small;
+    margin-right: rem($spacing--xtra-small);
     display: flex;
     align-items: center;
   }
@@ -44,7 +44,7 @@
   &__name {
     display: flex;
     align-items: center;
-    padding-left: $spacing--xtra-small;
+    padding-left: rem($spacing--xtra-small);
     width: 100%;
   }
 }
@@ -54,7 +54,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing--xtra-small;
+  padding: rem($spacing--xtra-small);
 
   &__triangle-left:hover,
   &__triangle-right:hover {
@@ -70,36 +70,36 @@
   &__card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 $spacing--small;
+    gap: 0 rem($spacing--small);
     height: rem(200px);
     background-color: $color--white;
 
     @include d1-mq('large') {
       grid-template-columns: none;
       grid-template-rows: 1fr 1fr;
-      gap: $spacing--small 0;
+      gap: rem($spacing--small) 0;
       height: rem(400px);
     }
   }
 
   &__img {
-    padding: $spacing--small 0 $spacing--small $spacing--small;
+    padding: rem($spacing--small) 0 rem($spacing--small) rem($spacing--small);
     height: 100%;
     width: 100%;
     object-fit: cover;
 
     @include d1-mq('large') {
-      padding: $spacing--small $spacing--small 0 $spacing--small;
+      padding: rem($spacing--small) rem($spacing--small) 0 rem($spacing--small);
     }
   }
 
   &__details {
     display: flex;
     justify-content: space-between;
-    padding: $spacing--small $spacing--small $spacing--small 0;
+    padding: rem($spacing--small) rem($spacing--small) rem($spacing--small) 0;
 
     @include d1-mq('large') {
-      padding: 0 $spacing--small $spacing--small $spacing--small;
+      padding: 0 rem($spacing--small) rem($spacing--small) rem($spacing--small);
     }
   }
 
@@ -111,16 +111,16 @@
 
 .ingredients {
   &__heading {
-    margin-top: $spacing--small;
+    margin-top: rem($spacing--small);
     margin-bottom: rem(3px);
   }
 
   &__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: $spacing--small;
-    row-gap: $spacing--xtra-small;
-    padding: $spacing--medium 0;
+    column-gap: rem($spacing--small);
+    row-gap: rem($spacing--xtra-small);
+    padding: rem($spacing--medium) 0;
     border-top: 1px solid $color--dark-gray;
 
     @include d1-mq('large') {
@@ -151,8 +151,8 @@
 
   &__info-container {
     border-top: 1px solid $color--dark-gray;
-    padding-top: $spacing--medium;
-    padding-bottom: $spacing--xtra-small;
+    padding-top: rem($spacing--medium);
+    padding-bottom: rem($spacing--xtra-small);
     display: flex;
     justify-content: space-between;
   }

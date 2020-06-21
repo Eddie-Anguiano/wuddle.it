@@ -4,6 +4,10 @@
 
 :root {
   font-size: $font-size--base;
+
+  @include d1-mq('large') {
+    font-size: 14px;
+  }
 }
 
 *,

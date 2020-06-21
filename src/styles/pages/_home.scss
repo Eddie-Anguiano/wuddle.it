@@ -5,7 +5,7 @@ body {
     url('./../images/background-main.jpg');
   background-size: cover;
   background-position: center;
-  padding: $spacing--medium 0;
+  padding: rem($spacing--medium) 0;
 
   @include d1-mq('x-large--keep') {
     padding: 0;
