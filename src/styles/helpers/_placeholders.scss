@@ -37,4 +37,8 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   column-gap: $spacing--small;
+
+  @include d1-mq('large') {
+    grid-template-columns: 1fr 1.5fr 1fr;
+  }
 }

@@ -70,9 +70,16 @@
   &__card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: $spacing--small;
+    gap: 0 $spacing--small;
     height: rem(200px);
     background-color: $color--white;
+
+    @include d1-mq('large') {
+      grid-template-columns: none;
+      grid-template-rows: 1fr 1fr;
+      gap: $spacing--small 0;
+      height: rem(400px);
+    }
   }
 
   &__img {
@@ -80,12 +87,20 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+
+    @include d1-mq('large') {
+      padding: $spacing--small $spacing--small 0 $spacing--small;
+    }
   }
 
   &__details {
     display: flex;
     justify-content: space-between;
     padding: $spacing--small $spacing--small $spacing--small 0;
+
+    @include d1-mq('large') {
+      padding: 0 $spacing--small $spacing--small $spacing--small;
+    }
   }
 
   &__glass {
@@ -107,6 +122,10 @@
     row-gap: $spacing--xtra-small;
     padding: $spacing--medium 0;
     border-top: 1px solid $color--dark-gray;
+
+    @include d1-mq('large') {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__grid-item {
