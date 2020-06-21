@@ -18,7 +18,8 @@ $letter-spacing: 1.4px;
 /* BREAKPOINTS */
 /*-------------------------------*/
 
-// $breakpoint--lg: 1200px;
+$breakpoint--x-lg: 1140px;
+$breakpoint--lg: 950px;
 // $breakpoint--md: 716px;
 // $breakpoint--sm: 300px;
 
@@ -32,6 +33,9 @@ $color--yellow: #fec961;
 $color--light-gray: #e7e5df;
 $color--dark-gray: #c3c4c3;
 $color--red: #f45b69;
+$color--green: #39d8a9;
+$color--purple: #ad7a99;
+$color--dark-blue: #465c69;
 
 /*-------------------------------*/
 /* IMAGE PATH */

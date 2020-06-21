@@ -6,6 +6,11 @@ body {
   background-size: cover;
   background-position: center;
   padding: $spacing--medium 0;
+
+  @include d1-mq('x-large--keep') {
+    padding: 0;
+    background: none;
+  }
 }
 
 .container {
@@ -13,4 +18,8 @@ body {
   margin: 0 auto;
   height: calc(100vh - 100px);
   background-color: $color--light-gray;
+
+  @include d1-mq('x-large--keep') {
+    height: 100vh;
+  }
 }

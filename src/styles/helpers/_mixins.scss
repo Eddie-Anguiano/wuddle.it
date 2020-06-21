@@ -44,11 +44,15 @@
 
 // Desktop first
 @mixin d1-mq($break) {
-  @if $break == 'large' {
+  @if $break == 'x-large--keep' {
+    @media (max-width: $breakpoint--x-lg) {
+      @content;
+    }
+  } @else if $break == 'large' {
     @media (max-width: $breakpoint--lg) and (min-width: $breakpoint--md) {
       @content;
     }
-  } @else if $break == 'large-keep' {
+  } @else if $break == 'large--keep' {
     @media (max-width: $breakpoint--lg) {
       @content;
     }

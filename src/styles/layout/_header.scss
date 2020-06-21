@@ -5,22 +5,39 @@
   padding: rem($spacing--small);
   box-shadow: 0 5px 9px -6px darken($color--dark-gray, 20%);
 
+  @include d1-mq('large--keep') {
+    height: auto;
+  }
+
   &__favorites {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  }
-
-  &__search {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    column-gap: $spacing--xtra-small;
   }
 }
 
 .search {
   display: flex;
   justify-content: stretch;
+
+  @include d1-mq('large--keep') {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: $spacing--small;
+  }
+
+  &__top {
+    flex: 0.93;
+    display: flex;
+    justify-content: stretch;
+  }
+
+  &__bottom {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    column-gap: $spacing--xtra-small;
+  }
 
   &__icon {
     background-color: $color--white;
@@ -29,7 +46,7 @@
   }
 
   &__input {
-    flex: 2;
+    width: 100%;
   }
 
   &__btn {
