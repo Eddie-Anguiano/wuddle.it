@@ -9,6 +9,13 @@
     height: auto;
   }
 
+  &__logo {
+    @include d1-mq('large--keep') {
+      text-align: center;
+      padding-bottom: rem($spacing--xtra-small);
+    }
+  }
+
   &__favorites {
     display: flex;
     justify-content: flex-end;
@@ -64,6 +71,7 @@
   background-color: $color--light-gray;
   border-radius: $border-radius--small;
   @include neu-button($color--light-gray);
+  z-index: $index--2;
 
   &__btn {
     height: 100%;

@@ -41,4 +41,8 @@
   @include d1-mq('large') {
     grid-template-columns: 1fr 1.5fr 1fr;
   }
+
+  @include d1-mq('medium') {
+    grid-template-columns: 1fr;
+  }
 }

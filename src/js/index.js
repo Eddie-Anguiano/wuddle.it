@@ -1,5 +1,10 @@
 import '../styles/main.scss';
-import { elements, renderLoader, clearLoader } from './views/base';
+import {
+  elements,
+  renderLoader,
+  clearLoader,
+  smoothScroll,
+} from './views/base';
 import * as dropViews from './views/dropViews';
 import * as searchViews from './views/searchViews';
 import * as recipeViews from './views/recipeViews';
@@ -12,6 +17,7 @@ import Random from './models/Random';
 const state = {
   searchType: 'drink',
 };
+const widthMatch = window.matchMedia('(max-width: 700px');
 
 /*-------------------------------*/
 /* DROP-DOWN CONTROLLER */
@@ -202,3 +208,12 @@ elements.recipe.addEventListener('click', (event) => {
     controlDetails(event);
   }
 });
+
+// Smooth scroll on results or ingredient links
+if (widthMatch.matches) {
+  elements.results.addEventListener('click', (event) => {
+    if (event.target.matches('.results__item *')) {
+      smoothScroll(elements.recipe, 500);
+    }
+  });
+}

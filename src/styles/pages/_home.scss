@@ -20,6 +20,10 @@ body {
   background-color: $color--light-gray;
 
   @include d1-mq('x-large--keep') {
-    height: 100vh;
+    min-height: 100vh;
+  }
+
+  @include d1-mq('medium') {
+    height: auto;
   }
 }

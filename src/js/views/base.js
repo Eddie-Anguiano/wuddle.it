@@ -28,3 +28,25 @@ export const clearLoader = () => {
     loaderElement.parentElement.removeChild(loaderElement);
   }
 };
+
+export const smoothScroll = (target, duration) => {
+  const targetPosition = target.getBoundingClientRect().top;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function ease(t, b, c, d) {
+    t /= d;
+    return c * t * t + b;
+  }
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = ease(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  requestAnimationFrame(animation);
+};

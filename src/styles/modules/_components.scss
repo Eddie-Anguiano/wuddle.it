@@ -5,6 +5,7 @@
     height: rem($spacing--medium);
     background-color: $color--white;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 
     &::before {
       position: absolute;
@@ -18,7 +19,8 @@
       transition: opacity 0.3s ease-in-out;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       transform: translate(rem(10px), 0px);
 
       &::before {
@@ -74,7 +76,7 @@
     height: rem(200px);
     background-color: $color--white;
 
-    @include d1-mq('large') {
+    @include d1-mq('large--keep') {
       grid-template-columns: none;
       grid-template-rows: 1fr 1fr;
       gap: rem($spacing--small) 0;
@@ -88,7 +90,7 @@
     width: 100%;
     object-fit: cover;
 
-    @include d1-mq('large') {
+    @include d1-mq('large--keep') {
       padding: rem($spacing--small) rem($spacing--small) 0 rem($spacing--small);
     }
   }
@@ -98,7 +100,7 @@
     justify-content: space-between;
     padding: rem($spacing--small) rem($spacing--small) rem($spacing--small) 0;
 
-    @include d1-mq('large') {
+    @include d1-mq('large--keep') {
       padding: 0 rem($spacing--small) rem($spacing--small) rem($spacing--small);
     }
   }
@@ -123,7 +125,7 @@
     padding: rem($spacing--medium) 0;
     border-top: 1px solid $color--dark-gray;
 
-    @include d1-mq('large') {
+    @include d1-mq('large--keep') {
       grid-template-columns: 1fr;
     }
   }
@@ -145,6 +147,9 @@
 }
 
 .details {
+  // @include d1-mq('medium') {
+  //   display: none;
+  // }
   &__heading {
     margin-bottom: rem(3px);
   }

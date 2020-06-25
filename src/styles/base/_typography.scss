@@ -23,6 +23,11 @@ h3 {
   font-size: rem(16px);
 }
 
+a {
+  text-decoration: none;
+  color: $color--black;
+}
+
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-size: rem(14px);
