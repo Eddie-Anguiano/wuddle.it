@@ -89,6 +89,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    max-height: 200px;
 
     @include d1-mq('large--keep') {
       padding: rem($spacing--small) rem($spacing--small) 0 rem($spacing--small);

@@ -8,7 +8,7 @@ export default class Random {
       );
       this.results = await resultsJSON.json();
     } catch (error) {
-      console.log(error);
+      console.log('its me');
     }
   }
 }
